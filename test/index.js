@@ -20,14 +20,6 @@ describe('jonmodule', () => {
 
 	it('should echo data', (done) => {
 		var testdata = "hello";
-		
-		var api = {
-			echo: (data) => {
-				assert.equal(testdata, data);
-				done();
-			}
-		};
-		
 		var module = modp(p('mod_echo.js'), {});
 		module.on('loaded', () => {
 			module.echo(testdata, function(resultdata) {
