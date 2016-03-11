@@ -28,9 +28,12 @@ describe('jonmodule', () => {
 			}
 		};
 		
-		var module = modp(p('mod_echo.js'), api);
+		var module = modp(p('mod_echo.js'), {});
 		module.on('loaded', () => {
-			module.echo(testdata);
+			module.echo(testdata, function(resultdata) {
+				assert.equal(resultdata, testdata);
+				done();	
+			});
 		});
 	});
 
