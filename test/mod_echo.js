@@ -1,3 +1,5 @@
 module.exports = (parent) => {
-	parent.on('echo', (data) => parent.echo(data));
+	return {
+		echo: (data) => parent.echo(data)
+	}
 }

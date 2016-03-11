@@ -30,7 +30,7 @@ describe('jonmodule', () => {
 		
 		var module = modp(p('mod_echo.js'), api);
 		module.on('loaded', () => {
-			module.emit('echo', testdata);
+			module.echo(testdata);
 		});
 	});
 
