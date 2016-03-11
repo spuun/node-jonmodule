@@ -1,3 +1,6 @@
 module.exports = (parent) => {
-	parent.helloWorld();
+	parent.on('load', () => {
+		parent.helloWorld();
+	});
+	return {};
 };
