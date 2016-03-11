@@ -1,6 +1,6 @@
 var assert = require('assert');
 var path = require('path');
-var modp = require('../lib/module.js');
+var modp = require('../');
 
 var p = function(file) {
 	return path.join(__dirname, file);
@@ -32,7 +32,24 @@ describe('jonmodule', () => {
 		module.on('loaded', () => {
 			module.emit('echo', testdata);
 		});
+	});
 
+	it('should reload', (done) => {
+		var counter = 0;
+		var unloaded = false;
+		var api = { 
+			helloWorld: () => {
+				counter++;
+				if (counter == 1) {
+					module.reload();
+				}
+				if (counter == 2) {
+					assert.ok(true);
+					done();
+				}
+			}
+		};
+		var module = modp(p('mod_helloworld.js'), api);
 	});
 });
 

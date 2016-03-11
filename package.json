@@ -3,7 +3,7 @@
 	"description": "Run modules isolated in their own child process.",
 	"version": "0.1.0",
 	"author": "Jon Börjesson <jon@spuun.se>",
-	"main": "./lib/module.json",
+	"main": "./lib/module.js",
 	"scripts": {
 		"test": "./node_modules/mocha/bin/mocha"
 	}
