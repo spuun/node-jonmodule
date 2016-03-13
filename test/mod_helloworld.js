@@ -1,5 +1,5 @@
 module.exports = (parent) => {
-	parent.on('load', () => {
+	parent.on('loaded', () => {
 		parent.helloWorld();
 	});
 	return {};
