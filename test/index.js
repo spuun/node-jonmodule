@@ -65,5 +65,17 @@ describe('jonmodule', () => {
 				() =>  modp(p('mod_helloworld.js'), {helloWorld: () => {}, event: () => {}}),
 				Error);
 	});
+	it('event with multiple arguments sent', (done) => {
+		var api = {
+			ok: function(result) {
+				assert.ok(result);
+				done();
+			}
+		};
+		var module = modp(p('mod_event_args.js'), api);
+		module.on('load', () => {
+			module.event('test', 'a', 'a');
+		});
+	});
 });
 
